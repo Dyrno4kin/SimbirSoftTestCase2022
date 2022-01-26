@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimbirSoftTestCase2022.Services;
 using System.Text.Encodings.Web;
 
 namespace MvcMovie.Controllers
@@ -18,10 +19,9 @@ namespace MvcMovie.Controllers
 
         public IActionResult Welcome(string name, int numTimes = 1)
         {
-            ViewData["Message"] = "Hello " + name;
-            ViewData["NumTimes"] = numTimes;
-
-            return View();
+            WordService wordService = new WordService();
+            
+            return View(wordService.orderListByCount(wordService.getUniqueWordCount()));
         }
     }
 }

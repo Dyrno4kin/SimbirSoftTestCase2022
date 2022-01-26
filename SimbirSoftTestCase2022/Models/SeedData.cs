@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimbirSoftTestCase2022.Data;
+using SimbirSoftTestCase2022.Services;
 
 namespace SimbirSoftTestCase2022.Models
 {
@@ -7,6 +8,7 @@ namespace SimbirSoftTestCase2022.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
+            
             using (var context = new SimbirSoftTestCase2022Context(
                 serviceProvider.GetRequiredService<
                     DbContextOptions<SimbirSoftTestCase2022Context>>()))

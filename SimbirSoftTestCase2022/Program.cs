@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SimbirSoftTestCase2022.Data;
 using SimbirSoftTestCase2022.Models;
+using SimbirSoftTestCase2022.Services;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,3 +53,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
