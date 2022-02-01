@@ -14,7 +14,7 @@ namespace SimbirSoftTestCase2022.Data
             : base(options)
         {
         }
+        public DbSet<Statistics> Statistics { get; set; }
 
-        public DbSet<SimbirSoftTestCase2022.Models.Movie> Movie { get; set; }
     }
 }

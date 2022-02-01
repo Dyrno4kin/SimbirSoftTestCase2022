@@ -1,9 +1,9 @@
-﻿@model IEnumerable<SimbirSoftTestCase2022.Models.Word>
+﻿@model IEnumerable<SimbirSoftTestCase2022.Models.WordViewModel>
 @{
     ViewData["Title"] = "Welcome";
 }
 
-<form asp-controller="HelloWorld" asp-action="Welcome" method="get">
+<form asp-controller="WebsiteStatistics" asp-action="Index" method="get">
     <p>
         Сайт: <input type="text" size=50 value="https://www.simbirsoft.com/" name="SearchString" />
         <input type="submit" value="Загрузить" />

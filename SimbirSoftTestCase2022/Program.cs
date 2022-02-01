@@ -29,7 +29,6 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    SeedData.Initialize(services);
 }
 
 var defaultCulture = new CultureInfo("es-UY");
@@ -50,7 +49,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=WebsiteStatistics}/{action=Index}/{id?}");
 
 app.Run();
 

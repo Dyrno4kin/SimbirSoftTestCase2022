@@ -2,7 +2,7 @@
 
 namespace SimbirSoftTestCase2022.Models
 {
-    public class Word
+    public class WordViewModel
     {
         [Display(Name = "Слово")]
         public string Name { get; set; }

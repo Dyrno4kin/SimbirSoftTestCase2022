@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimbirSoftTestCase2022.Data;
 
@@ -11,9 +12,10 @@ using SimbirSoftTestCase2022.Data;
 namespace SimbirSoftTestCase2022.Migrations
 {
     [DbContext(typeof(SimbirSoftTestCase2022Context))]
-    partial class SimbirSoftTestCase2022ContextModelSnapshot : ModelSnapshot
+    [Migration("20220201171701_first")]
+    partial class first
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

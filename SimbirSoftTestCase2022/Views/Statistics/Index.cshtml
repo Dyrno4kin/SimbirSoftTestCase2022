@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SimbirSoftTestCase2022.Models.Statistics>
+
+@{
+    ViewData["Title"] = "История обращений";
+}
+
+<h1>История обращений</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountWords)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountUniqueWords)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountWords)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountUniqueWords)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
