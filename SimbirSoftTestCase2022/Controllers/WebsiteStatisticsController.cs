@@ -31,16 +31,15 @@ namespace MvcMovie.Controllers
             var words = new List<WordViewModel>();
             if (!String.IsNullOrEmpty(searchString))
             {
-                words = getListUniqueWordCount(htmlParserService.splitText(htmlParserService.getTextPage(htmlParserService.getHtmlTextPage(searchString)))).OrderByDescending(word => word.Count).ToList();
+                words = GetListUniqueWordCount(htmlParserService.SplitText(htmlParserService.GetTextPage(htmlParserService.GetHtmlTextPage(searchString)))).OrderByDescending(word => word.Count).ToList();
                 
                 ViewData["totalCountWords"] = "Всего слов: " + words.Sum(x => x.Count);
                 ViewData["mostFrequentWord"] = "Самое частое слово: " + words.OrderByDescending(word => word.Count).First().Name;
                 ViewData["measureText"] = "Мера лексического разнообразия: " + (double)words.Count() / (double)words.Sum(x => x.Count);
+                Statistics statistics = new Statistics { Name = searchString, CountWords = words.Sum(x => x.Count), CountUniqueWords = words.Count(), Date = DateTime.Today };
+                await _context.AddAsync(statistics);
+                await _context.SaveChangesAsync();
             }
-
-            Statistics statistics = new Statistics { Name = searchString, CountWords = words.Sum(x => x.Count) , CountUniqueWords = words.Count(), Date = DateTime.Today};
-            _context.Add(statistics);
-            await _context.SaveChangesAsync();
             return View(words);
         }
 
@@ -50,13 +49,13 @@ namespace MvcMovie.Controllers
         /// </summary>
         /// <param name="splitString">Исходный массив слов</param>
         /// <returns>Возвращает список уникальных слов</returns>
-        private List<WordViewModel> getListUniqueWordCount(string[] splitString)
+        private List<WordViewModel> GetListUniqueWordCount(string[] splitString)
         {
             List<WordViewModel> words = new List<WordViewModel>();
             foreach (String str in splitString)
             {
                 var word = words.FirstOrDefault(w => w.Name == str);
-                if (word != null)
+                if (word != default)
                 {
                     word.Count += 1;
                 }

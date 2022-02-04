@@ -21,7 +21,7 @@ namespace SimbirSoftTestCase2022.Services
         /// </summary>
         /// <param name="htmlText">Исходный код страницы</param>
         /// <returns></returns>
-        public string getTextPage(string htmlText)
+        public string GetTextPage(string htmlText)
         {
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(htmlText);
@@ -36,7 +36,7 @@ namespace SimbirSoftTestCase2022.Services
         /// </summary>
         /// <param name="url"> URL адрес страницы, которую требуется получить</param>
         /// <returns>Html код полученной страницы</returns>
-        public string getHtmlTextPage(string url)
+        public string GetHtmlTextPage(string url)
         {
             var result = String.Empty;
             try
@@ -73,7 +73,7 @@ namespace SimbirSoftTestCase2022.Services
         /// </summary>
         /// <param name="inputText">Входная строка</param>
         /// <returns>Массив слов</returns>
-        public string[] splitText(string inputText)
+        public string[] SplitText(string inputText)
         {
             return Regex.Split(inputText, @"[\\s., !?;:<>|{}()\t\n\r\f]+");          
         }
